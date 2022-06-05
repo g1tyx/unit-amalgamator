@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="UTF-8">
+	<meta name="description" content="An alchemy style game where you multiply and divide primary SI units in order to collect them all">
+	<!-- <link rel="icon" href="favicon.ico" type="image/png"> -->
+	<link rel="icon" href="favicon48.ico?" type="image/png">
+	<title>单位合并器 - Unit amalgamator</title>
+
+	<style>
+		[v-cloak] {
+    		display: none;
+		}
+	</style>
+</head>
+<body onload="load()" style="background-color: #f4ffff;">
+	<script src="chs.js"></script>
+	<script src="//g8hh.com/zh/core.js"></script>
+	<div style="position: fixed; opacity: 0;" id="widthTester">tester</div>
+	<div id="app">
+	<div id="title">
+		<p>Unit amalgamator</p>
+		<p>You have <span style="font-size: 200%" v-cloak>{{ player.units.filter(u => u && u[0]).length }}</span> units</p>
+		<p>v1.1.0</p>
+	</div>
+	<div id="inventory" class="col right">
+		<div id="inventoryWrapper" style="margin-left: 15px; margin-right: 15px;">
+			<transition name="fade" tag="div" v-for="(unit, i) in player.units" :key="i">
+				<unit-place :unit="unit" location="inventory" aria-label="Move to fusion section" class="invBox"></unit-place>
+  			</transition>
+		</div>
+	</div>
+	<div id="fusionContainer" style="display: flex; flex-direction: column;">
+	<!-- <div id="fusion" class="col left" :style="{ height: document ? document.getElementById('inventory').scrollHeight + 'px' : '500px' }"> -->
+	<div id="fusion" class="col left">
+		<!-- its automatically centered because of css sourcery so i dont need to center -->
+		<table id="crafting" style="margin-top: 50px">
+			<tbody>
+				<tr>
+					<td>
+						<unit-place :unit="player.slot1" location="fusion" slotnum="slot1" aria-label="Move back to inventory"></unit-place>
+					</td>
+					<td>
+						<div style="font-size: 500%; text-align: center; user-select: none; font-family: sans-serif;" onclick="swapOperation()" id="operator" v-cloak>{{ player.operation }}</div>
+					</td>
+					<td>
+						<unit-place :unit="player.slot2" location="fusion" slotnum="slot2" aria-label="Move back to inventory"></unit-place>
+					</td>
+				</tr>
+				<tr>
+					<td style="font-size: 750%; text-align: center; vertical-align: middle; font-family: sans-serif; user-select: none;">=</td>
+					<td>
+						<unit-place :unit="player.product" location="fusion" :style="[(player.product && player.units.map(u => !u || u[0]).includes(player.product[0])) ? {opacity:0.5} : {}]" aria-label="Move product unit to inventory" slotnum="product"></unit-place>
+					</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+
+
+	<!-- <div id="info" style="background: green;">
+		<p>test</p>
+	</div> -->
+	</div>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!--developmental  -->
+	<script src="library/vue.js"></script>
+	<!--production  -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script> -->
+
+
+	<script type="text/javascript" src="interact.min.js"></script>
+	<script type="text/javascript" src="main.js" type="module"></script>
+	<script type="text/javascript" src="v.js"></script>
+	<!--客服 开始-->
+<script src="//g8hh.com/static/js/jquery.min.js"></script>
+<link rel="stylesheet" href="//g8hh.com/static/css/kf.css" type="text/css" media="screen" charset="utf-8">
+<script src="//g8hh.com/static/js/kf.js"></script>
+<!-- 客服 结束 -->
+<!--站长统计--> 
+<div style="display: none">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?028b1b5f659ed138230f4cafd7ad0dfc";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    </div>
+</body>
+</html>

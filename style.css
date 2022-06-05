@@ -1,0 +1,120 @@
+/* || General styling */
+/* col was copy pasted from prestige tree */
+.col {
+    /*min-width: 49.5%;*/
+    /*max-width: 49.5%;*/
+    /*width: 49.5%;*/
+    /* height: 90%; */
+    /* min-height: 85%; */
+    column-span: 1;
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: auto;
+    transition-duration: 0s;
+    border-top: 1px solid #ccc;
+    width: 49.5%;
+}
+
+.left {
+    left: 10px;
+}
+
+.right {
+    right: 10px;
+}
+
+#title>* {
+    width: 33%;
+    display: inline-block;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    border: 2px solid;
+    border-radius: 35%;
+    border-color: rgba(255, 255, 255, 0.125) rgba(0, 0, 0, 0.25) rgba(0, 0, 0, 0.25) rgba(255, 255, 255, 0.125);
+
+    transition: all 1s;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to
+
+/* .fade-leave-active below version 2.1.8 */
+    {
+    opacity: 0;
+}
+
+#operator {
+    width: 100px;
+    height: 100px;
+    border: 2px solid;
+    border-radius: 100%;
+    border-color: rgba(255, 255, 255, 0.125) rgba(0, 0, 0, 0.25) rgba(0, 0, 0, 0.25) rgba(255, 255, 255, 0.125);
+    background: #fffdd0;
+}
+
+.empty {
+    background: #fffdd0;
+}
+
+.full {
+    background: #90ee90
+}
+
+/* for interact.js to work */
+#fusion {
+    box-sizing: border-box;
+    touch-action: none;
+    overflow: hidden;
+    border-right: 1px solid #ccc;
+    /* fill remaining space */
+    flex: 1;
+}
+
+/* https://css-tricks.com/scaled-proportional-blocks-with-css-and-javascript */
+/* because it is left -50% in the js because it is scaling */
+#crafting {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    transform-origin: center center;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button:focus {
+    border: none;
+    outline: none;
+}
+
+/* || Typography */
+p {
+    text-align: center;
+}
+
+#inventoryWrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 107px);
+    justify-content: center;
+}
+
+#inventory .box {
+    margin-top: 7px;
+}
+
+[v-cloak] {
+    display: none;
+}
