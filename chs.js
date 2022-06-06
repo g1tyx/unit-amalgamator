@@ -54,7 +54,7 @@ var cnItems = {
     "Force": "力",
     "Stress": "压力",
     "Energy": "能量",
-    "Power": "电力",
+    "Power": "功率",
     "Electric charge": "电荷",
     "Voltage": "电压",
     "Capacitance": "电容",
